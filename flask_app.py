@@ -3,26 +3,23 @@ from flask import Flask, jsonify, render_template, request, send_file
 
 from chatbot.chatbot import Chatbot
 
-PYTHONANYWHERE_USERNAME = "carvice"
+PYTHONANYWHERE_USERNAME = "polanchr"
 PYTHONANYWHERE_WEBAPPNAME = "mysite"
 
 app = Flask(__name__)
 
 my_type_role = """
-    As a digital therapy coach, check in daily with your patient to assess their well-being related to their chronic condition.
-    Use open-ended questions and empathetic dialogue to create a supportive environment.
-    Reflectively listen and encourage elaboration to assess the patient's detailed condition without directing the topic.
+    The User seems to be trying to recall something specific but can't quite remember. Your job is to help the user to remember.
+    Start by asking open-ended questions. This encourages the user to freely express their thoughts without feeling constrained by predefined options.
+    Follow up with inquiries such as, 'What does it look like?' or 'Can you describe any related experiences or emotions?'
+    Utilize open questions throughout the interaction to allow for exploration and uncovering of the desired artifact.
 """
 
 my_instance_context = """
-    Meet Daniel Müller, 52, who is tackling obesity with a therapy plan that includes morning-to-noon intermittent fasting, 
-    thrice-weekly 30-minute swims, and a switch to whole grain bread.
 """
 
 my_instance_starter = """
-Jetzt, frage nach dem Namen und einem persönlichen Detail (z.B. Hobby, Beruf, Lebenserfahrung).
-Verwende diese im geschlechtsneutralem Gespräch in Du-Form.
-Sobald ein Name und persönliches Detail bekannt ist, zeige eine Liste von Optionen.
+    Start by asking: 'It looks like you're trying to remember something. Can you give me any clues or details about what you're trying to remember?'
 """
 
 bot = Chatbot(
